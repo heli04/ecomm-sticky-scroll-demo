@@ -4,7 +4,7 @@ class ScrollRevealServices extends HTMLElement {
 <style>
 :host {
   display: block;
- font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
+  font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .section {
@@ -19,13 +19,18 @@ class ScrollRevealServices extends HTMLElement {
 
 .service {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* vertically center images */
   gap: 50px;
-  margin-bottom: 120px;
-
-  opacity: 0;
+  margin-bottom: 80px; /* less spacing for last section */
+  
+  opacity: 0; /* initially hidden except first one */
   transform: translateY(60px);
   transition: all 0.8s ease;
+}
+
+.service:first-child {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .service.reveal {
@@ -42,7 +47,7 @@ class ScrollRevealServices extends HTMLElement {
 }
 
 .title {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 16px;
   color: rgb(64,64,64);
   font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
@@ -52,25 +57,26 @@ class ScrollRevealServices extends HTMLElement {
   font-size: 16px;
   line-height: 1.8rem;
   color: rgb(0,0,0);
-  latter-spacing: -0.01em
+  font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .desc ul {
   padding-left: 20px;
   margin-top: 15px;
   list-style: disc;
+  font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .desc li {
-  margin-bottom: 20px;
-  color: rgb(0,0,0);
+  margin-bottom: 15px;
+  font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .desc strong {
   font-weight: bold;
 }
 
-/* IMAGE FIX (no radius as requested) */
+/* IMAGE FIX (no radius, vertically centered) */
 .image {
   flex: 1;
   height: 320px;
@@ -82,10 +88,11 @@ class ScrollRevealServices extends HTMLElement {
 @media (max-width: 768px) {
   .service {
     flex-direction: column !important;
+    align-items: flex-start;
   }
-
   .image {
     width: 100%;
+    margin-top: 20px;
   }
 }
 </style>
@@ -98,7 +105,7 @@ class ScrollRevealServices extends HTMLElement {
       <div class="text">
         <h3 class="title">Niche E-commerce Development</h3>
         <div class="desc">
-            We create tailored shopping experiences that go beyond generic templates. Whether you're on Shopify, WooCommerce, Magento, or a headless architecture, we build:
+          We create tailored shopping experiences that go beyond generic templates. Whether you're on Shopify, WooCommerce, Magento, or a headless architecture, we build:
           <ul>
             <li><strong>Custom storefronts</strong> designed for your specific industry and brand identity</li>
             <li><strong>Seamless checkout flows</strong> to reduce cart abandonment and friction</li>
@@ -118,9 +125,9 @@ class ScrollRevealServices extends HTMLElement {
         <div class="desc">
           A slow site is a revenue leak. We apply data-driven strategies to ensure your store performs at its peak.
           <ul>
-            <li><strong>Speed Optimization:</strong>Achieving lightning-fast load times and Core Web Vitals compliance</li>
+            <li><strong>Speed Optimization:</strong> Achieving lightning-fast load times and Core Web Vitals compliance</li>
             <li><strong>Conversion Rate Optimization (CRO):</strong> Auditing user behavior to tweak designs and flows that maximize sales</li>
-            <li><strong>Technical SEO:</strong>  Ensuring your site structure is perfectly readable by search engines</li>
+            <li><strong>Technical SEO:</strong> Ensuring your site structure is perfectly readable by search engines</li>
             <li><strong>A/B Testing:</strong> Systematic experimentation to identify high-impact improvements</li>
           </ul>
         </div>
@@ -135,7 +142,7 @@ class ScrollRevealServices extends HTMLElement {
         <div class="desc">
           We believe you should spend time growing your brand, not copying and pasting data. We automate the "boring" stuff.
           <ul>
-            <li><strong>Inventory Sync:</strong>  Real-time synchronization across multiple sales channels (Shopify, Amazon, eBay, etc.)</li>
+            <li><strong>Inventory Sync:</strong> Real-time synchronization across multiple sales channels (Shopify, Amazon, eBay, etc.)</li>
             <li><strong>Marketing Automation:</strong> Smart flows for abandoned carts, post-purchase upsells, and customer retention</li>
             <li><strong>Order & Fulfillment Automation:</strong> Streamlined workflows from order capture to shipping notification</li>
             <li><strong>ERP & CRM Integrations:</strong> Connecting your store to accounting, shipping, and customer support tools seamlessly</li>
@@ -158,7 +165,8 @@ class ScrollRevealServices extends HTMLElement {
             });
         }, { threshold: 0.2 });
 
-        this.querySelectorAll(".service").forEach(el => observer.observe(el));
+        // Only observe services except first one (already visible)
+        this.querySelectorAll(".service:not(:first-child)").forEach(el => observer.observe(el));
     }
 }
 
