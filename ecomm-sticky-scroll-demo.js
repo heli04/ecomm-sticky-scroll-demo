@@ -27,11 +27,13 @@ class ScrollRevealServices extends HTMLElement {
   transition: all 0.8s ease;
 }
 
+
 .service:first-child {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Reveal animation */
 .service.reveal {
   opacity: 1;
   transform: translateY(0);
@@ -57,6 +59,7 @@ class ScrollRevealServices extends HTMLElement {
   line-height: 1.8rem;
   color: rgb(0,0,0);
   font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
+  letter-spacing: -0.01em; 
 }
 
 .desc ul {
@@ -75,10 +78,10 @@ class ScrollRevealServices extends HTMLElement {
   font-weight: bold;
 }
 
-/* IMAGE FIX (no radius, vertically centered) */
 .image {
   flex: 1;
   height: 320px;
+  min-height: 320px; 
   background-size: cover;
   background-position: center;
 }
@@ -86,11 +89,21 @@ class ScrollRevealServices extends HTMLElement {
 @media (max-width: 768px) {
   .service {
     flex-direction: column !important;
-    align-items: flex-start;
+    align-items: stretch;
   }
+
+  .text {
+    width: 100%;
+  }
+
   .image {
     width: 100%;
+    height: 250px;
+    min-height: 250px;
+    display: block;
     margin-top: 20px;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 </style>
@@ -137,7 +150,7 @@ class ScrollRevealServices extends HTMLElement {
     <div class="service">
       <div class="text">
         <h3 class="title">Business Process Automation</h3>
-        <div class="desc">
+         <div class="desc">
           We believe you should spend time growing your brand, not copying and pasting data. We automate the "boring" stuff.
           <ul>
             <li><strong>Inventory Sync:</strong> Real-time synchronization across multiple sales channels (Shopify, Amazon, eBay, etc.)</li>
@@ -161,8 +174,10 @@ class ScrollRevealServices extends HTMLElement {
             });
         }, { threshold: 0.2 });
 
-        // Only observe services except first one (already visible)
-        this.querySelectorAll(".service:not(:first-child)").forEach(el => observer.observe(el));
+        // Observe all except first
+        this.querySelectorAll(".service:not(:first-child)").forEach(el => {
+            observer.observe(el);
+        });
     }
 }
 
