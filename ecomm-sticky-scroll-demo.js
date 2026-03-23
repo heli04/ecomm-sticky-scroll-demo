@@ -18,8 +18,7 @@ class ScrollRevealServices extends HTMLElement {
 }
 
 .service {
-  display: none;
-  flex-direction: row;
+  display: flex;
   align-items: center;
   gap: 50px;
   margin-bottom: 100px;
@@ -28,8 +27,12 @@ class ScrollRevealServices extends HTMLElement {
   transition: all 0.8s ease;
 }
 
+.service:first-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .service.reveal {
-  display: flex;
   opacity: 1;
   transform: translateY(0);
 }
@@ -72,6 +75,7 @@ class ScrollRevealServices extends HTMLElement {
   font-weight: bold;
 }
 
+/* IMAGE FIX (no radius, vertically centered) */
 .image {
   flex: 1;
   height: 320px;
@@ -94,7 +98,8 @@ class ScrollRevealServices extends HTMLElement {
 <div class="section">
   <div class="container">
 
-    <div class="service reveal"> <!-- first one visible -->
+    <!-- 1 -->
+    <div class="service">
       <div class="text">
         <h3 class="title">Niche E-commerce Development</h3>
         <div class="desc">
@@ -104,13 +109,14 @@ class ScrollRevealServices extends HTMLElement {
             <li><strong>Seamless checkout flows</strong> to reduce cart abandonment and friction</li>
             <li><strong>Complex product configurators</strong> for personalized shopping experiences</li>
             <li><strong>Subscription & membership models</strong> for recurring revenue streams</li>
-            <li><strong>Mobile-first experiences</strong> optimized for on-the-go shoppers</li>
+            <li><strong>Mobile-first experiences </strong>optimized for on-the-go shoppers</li>
           </ul>
         </div>
       </div>
       <div class="image" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d')"></div>
     </div>
 
+    <!-- 2 -->
     <div class="service reverse">
       <div class="text">
         <h3 class="title">Performance Optimization (CRO & Speed)</h3>
@@ -127,6 +133,7 @@ class ScrollRevealServices extends HTMLElement {
       <div class="image" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f')"></div>
     </div>
 
+    <!-- 3 -->
     <div class="service">
       <div class="text">
         <h3 class="title">Business Process Automation</h3>
@@ -150,16 +157,11 @@ class ScrollRevealServices extends HTMLElement {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal");
-                }
-                else {
-                    entry.target.classList.remove("reveal");
-                }
+                entry.target.classList.toggle("reveal", entry.isIntersecting);
             });
         }, { threshold: 0.2 });
 
-        // Observe all except first (already visible)
+        // Only observe services except first one (already visible)
         this.querySelectorAll(".service:not(:first-child)").forEach(el => observer.observe(el));
     }
 }
