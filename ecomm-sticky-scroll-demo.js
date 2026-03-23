@@ -27,6 +27,11 @@ class ScrollRevealServices extends HTMLElement {
   transition: all 0.8s ease;
 }
 
+.service:first-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .service.reveal {
   opacity: 1;
   transform: translateY(0);
@@ -156,7 +161,8 @@ class ScrollRevealServices extends HTMLElement {
             });
         }, { threshold: 0.2 });
 
-        this.querySelectorAll(".service").forEach(el => observer.observe(el));
+        // Only observe services except first one (already visible)
+        this.querySelectorAll(".service:not(:first-child)").forEach(el => observer.observe(el));
     }
 }
 
