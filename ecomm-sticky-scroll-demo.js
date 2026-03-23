@@ -19,11 +19,10 @@ class ScrollRevealServices extends HTMLElement {
 
 .service {
   display: flex;
-  align-items: center; /* vertically center images */
+  align-items: center; 
   gap: 50px;
-  margin-bottom: 80px; /* less spacing for last section */
-  
-  opacity: 0; /* initially hidden except first one */
+  margin-bottom: 100px; 
+  opacity: 0; 
   transform: translateY(60px);
   transition: all 0.8s ease;
 }
@@ -159,9 +158,7 @@ class ScrollRevealServices extends HTMLElement {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal");
-                }
+                entry.target.classList.toggle("reveal", entry.isIntersecting);
             });
         }, { threshold: 0.2 });
 
