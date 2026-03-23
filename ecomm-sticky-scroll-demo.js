@@ -4,7 +4,7 @@ class ScrollRevealServices extends HTMLElement {
 <style>
 :host {
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+ font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .section {
@@ -44,12 +44,14 @@ class ScrollRevealServices extends HTMLElement {
 .title {
   font-size: 18px;
   margin-bottom: 16px;
+  color: rgb(64,64,64);
+  font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
 .desc {
   font-size: 16px;
   line-height: 1.8rem;
-  color: rgb(var(--color_38));
+  color: rgb(0,0,0);
   latter-spacing: -0.01em
 }
 
@@ -60,7 +62,8 @@ class ScrollRevealServices extends HTMLElement {
 }
 
 .desc li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: rgb(0,0,0);
 }
 
 .desc strong {
@@ -93,15 +96,15 @@ class ScrollRevealServices extends HTMLElement {
     <!-- 1 -->
     <div class="service">
       <div class="text">
-        <h3 class="title font_3">Niche E-commerce Development</h3>
+        <h3 class="title">Niche E-commerce Development</h3>
         <div class="desc">
-          We create tailored shopping experiences that go beyond generic templates:
+            We create tailored shopping experiences that go beyond generic templates. Whether you're on Shopify, WooCommerce, Magento, or a headless architecture, we build:
           <ul>
-            <li>Custom storefronts designed for your brand</li>
-            <li>Seamless checkout flows to reduce friction</li>
-            <li>Advanced product configurators</li>
-            <li>Subscription & membership systems</li>
-            <li>Mobile-first optimized UX</li>
+            <li><strong>Custom storefronts</strong> designed for your specific industry and brand identity</li>
+            <li><strong>Seamless checkout flows</strong> to reduce cart abandonment and friction</li>
+            <li><strong>Complex product configurators</strong> for personalized shopping experiences</li>
+            <li><strong>Subscription & membership models</strong> for recurring revenue streams</li>
+            <li><strong>Mobile-first experiences </strong>optimized for on-the-go shoppers</li>
           </ul>
         </div>
       </div>
@@ -111,14 +114,14 @@ class ScrollRevealServices extends HTMLElement {
     <!-- 2 -->
     <div class="service reverse">
       <div class="text">
-        <h3 class="title font_3">Performance Optimization (CRO & Speed)</h3>
+        <h3 class="title">Performance Optimization (CRO & Speed)</h3>
         <div class="desc">
-          A slow site is a revenue leak. We apply data-driven improvements:
+          A slow site is a revenue leak. We apply data-driven strategies to ensure your store performs at its peak.
           <ul>
-            <li>Speed optimization & Core Web Vitals</li>
-            <li>Conversion Rate Optimization (CRO)</li>
-            <li>Technical SEO improvements</li>
-            <li>A/B testing for continuous growth</li>
+            <li><strong>Speed Optimization:</strong>Achieving lightning-fast load times and Core Web Vitals compliance</li>
+            <li><strong>Conversion Rate Optimization (CRO):</strong> Auditing user behavior to tweak designs and flows that maximize sales</li>
+            <li><strong>Technical SEO:</strong>  Ensuring your site structure is perfectly readable by search engines</li>
+            <li><strong>A/B Testing:</strong> Systematic experimentation to identify high-impact improvements</li>
           </ul>
         </div>
       </div>
@@ -128,15 +131,15 @@ class ScrollRevealServices extends HTMLElement {
     <!-- 3 -->
     <div class="service">
       <div class="text">
-        <h3 class="title font_3">Business Process Automation</h3>
+        <h3 class="title">Business Process Automation</h3>
         <div class="desc">
-          We automate operations so you can focus on growth:
+          We believe you should spend time growing your brand, not copying and pasting data. We automate the "boring" stuff.
           <ul>
-            <li><strong>Inventory Sync:</strong> Real-time synchronization across Shopify, Amazon, eBay, etc.</li>
-            <li><strong>Marketing Automation:</strong> Smart flows for abandoned carts and retention</li>
-            <li><strong>Order & Fulfillment:</strong> Automated workflows from order to delivery</li>
-            <li><strong>ERP & CRM Integrations:</strong> Seamless tool connectivity</li>
-            <li><strong>Customer Data:</strong> Unified view across all touchpoints</li>
+            <li><strong>Inventory Sync:</strong>  Real-time synchronization across multiple sales channels (Shopify, Amazon, eBay, etc.)</li>
+            <li><strong>Marketing Automation:</strong> Smart flows for abandoned carts, post-purchase upsells, and customer retention</li>
+            <li><strong>Order & Fulfillment Automation:</strong> Streamlined workflows from order capture to shipping notification</li>
+            <li><strong>ERP & CRM Integrations:</strong> Connecting your store to accounting, shipping, and customer support tools seamlessly</li>
+            <li><strong>Customer Data Unification:</strong> Single source of truth across all touchpoints</li>
           </ul>
         </div>
       </div>
