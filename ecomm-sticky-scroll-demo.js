@@ -12,11 +12,11 @@ class ScrollRevealServices extends HTMLElement {
   background: #fff;
 }
 
-.reveal-section  .reveal-section__container {
+.reveal-section__container {
   max-width: 1100px;
   margin: auto;
 }
-.reveal-section .reveal-section__container .reveal-section__card {
+.reveal-section__card {
   display: flex;
   align-items: center;
   gap: 50px;
@@ -26,33 +26,33 @@ class ScrollRevealServices extends HTMLElement {
   transition: all 0.8s ease;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card:first-child {
+.reveal-section__card:first-child {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Reveal animation */
-.reveal-section .reveal-section__container .reveal-section__card.reveal {
+.reveal-section__card.reveal {
   opacity: 1;
   transform: translateY(0);
 }
 
-.reveal-section .reveal-section__container .reveal-section__card--reverse {
+.reveal-section__card--reverse {
   flex-direction: row-reverse;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content {
+.reveal-section__content {
   flex: 1;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content .reveal-section__title {
+.reveal-section__title {
   font-size: 20px;
   margin-bottom: 16px;
   color: rgb(64,64,64);
   font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content .reveal-section__description {
+.reveal-section__description {
   font-size: 16px;
   line-height: 1.8rem;
   color: rgb(0,0,0);
@@ -60,23 +60,23 @@ class ScrollRevealServices extends HTMLElement {
   letter-spacing: -0.01em; 
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content .reveal-section__description .reveal-section__list {
+.reveal-section__list {
   padding-left: 20px;
   margin-top: 15px;
   list-style: disc;
   font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content .reveal-section__description .reveal-section__list .reveal-section__list-item {
+.reveal-section__list-item {
   margin-bottom: 15px;
   font-family: madefor-text-mediumbold,helveticaneuew01-45ligh,helveticaneuew02-45ligh,helveticaneuew10-45ligh,sans-serif;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__content .reveal-section__description .reveal-section__list .reveal-section__list-item .reveal-section__highlight {
+.reveal-section__highlight {
   font-weight: bold;
 }
 
-.reveal-section .reveal-section__container .reveal-section__card .reveal-section__image {
+.reveal-section__image {
   flex: 1;
   height: 320px;
   min-height: 320px; 
@@ -86,16 +86,16 @@ class ScrollRevealServices extends HTMLElement {
 }
 
 @media (max-width: 768px) {
-  .reveal-section .reveal-section__container .reveal-section__card {
+ .reveal-section__card {
     flex-direction: column !important;
     align-items: stretch;
   }
 
-  .reveal-section .reveal-section__container .reveal-section__card .reveal-section__content {
+  .reveal-section__content {
     width: 100%;
   }
 
-  .reveal-section .reveal-section__container .reveal-section__card .reveal-section__image {
+  .reveal-section__image {
     width: 100%;
     height: 250px;
     min-height: 250px;
